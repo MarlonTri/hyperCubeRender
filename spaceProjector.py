@@ -21,7 +21,7 @@ class InterpolatedSpaceProjector(SpaceProjector):
         X_projected_reshaped = X_projected.reshape([resolution] * input_dim + [2])
 
         self.pos_interpolator = RegularGridInterpolator(
-            [np.mgrid[0: resolution] / (resolution - 1) for _ in range(input_dim)],
+            [np.mgrid[0:resolution] / (resolution - 1) for _ in range(input_dim)],
             X_projected_reshaped,
         )
 
@@ -37,7 +37,7 @@ class ManifoldSpaceProjector(SpaceProjector):
 
         self.method = method.lower()
         self.input_dim = input_dim
-        self.n_neighbors = 2 * input_dim - 1
+        self.n_neighbors = 8 * input_dim - 1
 
         self.fitter = self._fit(X)
         X_p = self.fitter.transform(X)
@@ -52,6 +52,7 @@ class ManifoldSpaceProjector(SpaceProjector):
                 n_components=2,
                 method=self.method,
                 random_state=42,
+                eigen_solver="dense",
             ).fit(X)
         elif self.method == "isomap":
             isomap = manifold.Isomap(
