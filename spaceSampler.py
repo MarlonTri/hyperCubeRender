@@ -2,14 +2,15 @@ import random
 
 import numpy as np
 
+
 def combo_iterator(iterators):
     while True:
         for iterator in iterators:
             yield next(iterator)
 
+
 def grid_iterator(rad, n_dim, batch, hollow=True):
     while True:
-        # onlyy apply rad at end, do multiply of [1, -1, 1, ...] type array so 1/n root can be applied
         x = np.random.random(n_dim * batch) * 2 - 1
         x = np.reshape(x, (batch, n_dim)) * rad
         if hollow:

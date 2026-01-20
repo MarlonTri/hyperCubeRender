@@ -6,6 +6,7 @@ from spaceProjector import ManifoldSpaceProjector
 
 DEBUG = False
 
+
 class ImageCompiler(object):
     def __init__(self, tot_sample_damp=0.0, peak_bright_percentile=80):
         self.tot_sample_damp = tot_sample_damp
@@ -20,7 +21,9 @@ class ImageCompiler(object):
         )
         sample_damp = np.clip(img_weights / top_bright, a_min=0, a_max=1)
 
-        img = img_sum / img_weights
+        img = img_sum / (
+            np.reshape(np.max(img_sum, axis=2), (resolution, resolution, 1))
+        )
         img = np.nan_to_num(img, nan=0)
         img = img * sample_damp
 
@@ -37,15 +40,17 @@ class Renderer(object):
         color_projector: ColorProjector,
         space_sampler,
         resolution,
+        buffer=0.1,
     ):
         self.space_projector = space_projector
         self.color_projector = color_projector
         self.space_sampler = space_sampler
         self.resolution = resolution
+        self.buffer = buffer
 
-        self.img = np.zeros((resolution, resolution, 3), dtype=np.uint8)
+        self.img = np.zeros((resolution, resolution, 3), dtype=np.uint64)
         self.img_sum = np.zeros((resolution, resolution, 3))
-        self.img_weights = np.zeros((resolution, resolution, 1), dtype=np.uint8)
+        self.img_weights = np.zeros((resolution, resolution, 1), dtype=np.uint64)
 
     def init_plt(self):
         plt.ion()
@@ -60,12 +65,15 @@ class Renderer(object):
         tc = time.time()
         temp_img_sum = np.zeros((self.resolution, self.resolution, 3))
         temp_img_weights = np.zeros(
-            (self.resolution, self.resolution, 1), dtype=np.uint8
+            (self.resolution, self.resolution, 1), dtype=np.uint64
         )
         for i in range(n_batches):
             X = next(self.space_sampler)
 
-            coords = (self.resolution * self.space_projector.transform(X)).astype(int)
+            coords = self.space_projector.transform(X)
+            coords = coords * (1 - 2 * self.buffer) + self.buffer
+            coords *= self.resolution
+            coords = coords.astype(int)
             coords = np.clip(coords, a_min=0, a_max=self.resolution - 1)
             xs = coords[:, 0]
             ys = coords[:, 1]
@@ -87,7 +95,8 @@ class Renderer(object):
                 np.add.at(self.img_weights, (xs, ys), 1)
 
         tc = time.time() - tc
-        print(f"{i=}, {tc=}")
+        tot_samples = np.sum(self.img_weights).astype(int)
+        print(f"{tot_samples=}, {tc=}")
         self.img = IMAGE_COMPILER(self.img_sum, self.img_weights)
 
         return self.img
