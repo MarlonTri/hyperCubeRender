@@ -8,7 +8,7 @@ class RenderConfig(object):
         save_path,
         method="isomap",
         sampler_config=None,
-        batch_size=5000,
+        batch_size=50000,
         image_resolution=2000,
     ):
         self.n_dim = n_dim

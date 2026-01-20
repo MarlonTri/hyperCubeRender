@@ -64,6 +64,8 @@ class RenderPipeline(object):
         self.render_options = render_config
 
     def __call__(self, show_plt):
+
+        print("Starting pipeline:", self.render_options)
         tc = time.time()
 
         opts = self.render_options
@@ -107,7 +109,7 @@ class RenderPipeline(object):
             f"DIM={n_dim}\nMESH-RES={resolution}\nSAMPLES={opts.total_samples:.1e}"
         )
         img_uint8 = add_overlay_top_left(
-            img_uint8, image_text, n_dim + 1, color_projector.colors
+            img_uint8, image_text, n_dim, color_projector.colors[:-1]
         )
         img_path = opts.save_path + "_render.png"
 
