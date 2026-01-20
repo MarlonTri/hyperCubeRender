@@ -1,13 +1,13 @@
-class RenderOptions(object):
+class RenderConfig(object):
     def __init__(
         self,
         n_dim,
         resolution,
         hollow_fit,
-        method,
-        sampler_config,
         total_samples,
         save_path,
+        method="isomap",
+        sampler_config=None,
         batch_size=5000,
         image_resolution=2000,
     ):

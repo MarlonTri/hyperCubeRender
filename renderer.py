@@ -61,6 +61,10 @@ class Renderer(object):
         self.plt_im.set_data(self.img)
         plt.pause(1)
 
+    def close_plt(self):
+        plt.ioff()
+        plt.close(self.plt_im.figure)
+
     def render_step(self, n_batches):
         tc = time.time()
         temp_img_sum = np.zeros((self.resolution, self.resolution, 3))
@@ -95,7 +99,7 @@ class Renderer(object):
                 np.add.at(self.img_weights, (xs, ys), 1)
 
         tc = time.time() - tc
-        tot_samples = np.sum(self.img_weights).astype(int)
+        tot_samples = int(np.sum(self.img_weights))
         print(f"{tot_samples=}, {tc=}")
         self.img = IMAGE_COMPILER(self.img_sum, self.img_weights)
 

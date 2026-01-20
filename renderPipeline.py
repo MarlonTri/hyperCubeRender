@@ -1,5 +1,6 @@
+import time
 import numpy as np
-from renderOptions import RenderOptions
+from renderOptions import RenderConfig
 from colorProjector import ColorProjector
 from renderer import Renderer
 from spaceProjector import InterpolatedSpaceProjector, ManifoldSpaceProjector
@@ -8,19 +9,22 @@ from PIL import Image
 
 
 class RenderPipeline(object):
-    def __init__(self, render_options: RenderOptions):
-        self.render_options = render_options
+    def __init__(self, render_config: RenderConfig):
+        self.render_options = render_config
 
     def __call__(self):
-        n_dim = self.render_options.n_dim
-        resolution = self.render_options.resolution
-        batch_size = self.render_options.batch_size
-        image_resolution = self.render_options.image_resolution
+        tc = time.time()
+
+        opts = self.render_options
+        n_dim = opts.n_dim
+        resolution = opts.resolution
+        batch_size = opts.batch_size
+        image_resolution = opts.image_resolution
 
         X = spaceSampler.unit_grid(
-            resolution, n_dim, hollow=self.render_options.hollow_fit
+            resolution, n_dim, hollow=opts.hollow_fit
         )
-        space_projector = ManifoldSpaceProjector(self.render_options.method, n_dim, X)
+        space_projector = ManifoldSpaceProjector(opts.method, n_dim, X)
         interp_space_projector = InterpolatedSpaceProjector(
             resolution, n_dim, space_projector
         )
@@ -46,11 +50,15 @@ class RenderPipeline(object):
         )
 
         renderer.init_plt()
-        while np.sum(renderer.img_weights) < self.render_options.total_samples:
+        while np.sum(renderer.img_weights) < opts.total_samples:
             renderer.render_step(100)
             renderer.update_plt()
 
+        renderer.close_plt()
+
         img_uint8 = (renderer.img * 255).astype(np.uint8)
-        img_path = self.render_options.save_path + "_render.jpg"
+        img_path = opts.save_path + "_render.jpg"
 
         Image.fromarray(img_uint8).save(img_path)
+        tc = time.time() - tc
+        print(f"Rendered {opts.total_samples} samples in {tc=} seconds.")
