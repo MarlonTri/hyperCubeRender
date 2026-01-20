@@ -37,24 +37,24 @@ Realistically, a "tetrahedron plot" could represent all 4 color pigment combinat
 ### Simply a regular ol' 3D cube embedded into 2D space.
 <!-- Always-visible previews (first 3) -->
 <div style="display:flex; flex-wrap:wrap; gap:8px;">
-  <img src="renders/3D_07rez_render.png" width="300"/>
-  <img src="renders/3D_11rez_render.png" width="300"/>
-  <img src="renders/3D_13rez_render.png" width="300"/>
+  <img src="renders/3D_07rez_render.png" width="265"/>
+  <img src="renders/3D_11rez_render.png" width="265"/>
+  <img src="renders/3D_13rez_render.png" width="265"/>
 </div>
 
 <!-- Foldable remainder -->
 <details>
   <summary><strong>More 3D renders</strong></summary>
   <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-    <img src="renders/3D_03rez_render.png" width="300"/>
-    <img src="renders/3D_04rez_render.png" width="300"/>
-    <img src="renders/3D_05rez_render.png" width="300"/>
-    <img src="renders/3D_06rez_render.png" width="300"/>
-    <img src="renders/3D_08rez_render.png" width="300"/>
-    <img src="renders/3D_09rez_render.png" width="300"/>
-    <img src="renders/3D_10rez_render.png" width="300"/>
-    <img src="renders/3D_12rez_render.png" width="300"/>
-    <img src="renders/3D_14rez_render.png" width="300"/>
+    <img src="renders/3D_03rez_render.png" width="265"/>
+    <img src="renders/3D_04rez_render.png" width="265"/>
+    <img src="renders/3D_05rez_render.png" width="265"/>
+    <img src="renders/3D_06rez_render.png" width="265"/>
+    <img src="renders/3D_08rez_render.png" width="265"/>
+    <img src="renders/3D_09rez_render.png" width="265"/>
+    <img src="renders/3D_10rez_render.png" width="265"/>
+    <img src="renders/3D_12rez_render.png" width="265"/>
+    <img src="renders/3D_14rez_render.png" width="265"/>
   </div>
 </details>
 
@@ -68,19 +68,19 @@ Realistically, a "tetrahedron plot" could represent all 4 color pigment combinat
 
 <!-- Always-visible previews (first 3) -->
 <div style="display:flex; flex-wrap:wrap; gap:8px;">
-  <img src="renders/4D_05rez_render.png" width="300"/>
-  <img src="renders/4D_06rez_render.png" width="300"/>
-  <img src="renders/4D_09rez_render.png" width="300"/>
+  <img src="renders/4D_05rez_render.png" width="265"/>
+  <img src="renders/4D_06rez_render.png" width="265"/>
+  <img src="renders/4D_09rez_render.png" width="265"/>
 </div>
 
 <!-- Foldable remainder -->
 <details>
   <summary><strong>More 4D renders</strong></summary>
   <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-    <img src="renders/4D_03rez_render.png" width="300"/>
-    <img src="renders/4D_04rez_render.png" width="300"/>
-    <img src="renders/4D_07rez_render.png" width="300"/>
-    <img src="renders/4D_08rez_render.png" width="300"/>
+    <img src="renders/4D_03rez_render.png" width="265"/>
+    <img src="renders/4D_04rez_render.png" width="265"/>
+    <img src="renders/4D_07rez_render.png" width="265"/>
+    <img src="renders/4D_08rez_render.png" width="265"/>
   </div>
 </details>
 
@@ -93,17 +93,17 @@ Realistically, a "tetrahedron plot" could represent all 4 color pigment combinat
 ### A 5-dimensional cube embedded into 2D space. Notice each vertex has 5 edges connected.
 <!-- Always-visible previews (first 3) -->
 <div style="display:flex; flex-wrap:wrap; gap:8px;">
-  <img src="renders/5D_03rez_render.png" width="300"/>
-  <img src="renders/5D_05rez_render.png" width="300"/>
-  <img src="renders/5D_06rez_render.png" width="300"/>
+  <img src="renders/5D_03rez_render.png" width="265"/>
+  <img src="renders/5D_05rez_render.png" width="265"/>
+  <img src="renders/5D_06rez_render.png" width="265"/>
 </div>
 
 <!-- Foldable remainder -->
 <details>
   <summary><strong>More 5D renders</strong></summary>
   <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
-    <img src="renders/5D_04rez_render.png" width="300"/>
-    <img src="renders/5D_07rez_render.png" width="300"/>
+    <img src="renders/5D_04rez_render.png" width="265"/>
+    <img src="renders/5D_07rez_render.png" width="265"/>
   </div>
 </details>
 
@@ -112,7 +112,7 @@ Realistically, a "tetrahedron plot" could represent all 4 color pigment combinat
 ### 6D cubes are essentially incoherent to us humans
 <!-- Always-visible previews (first 3) -->
 <div style="display:flex; flex-wrap:wrap; gap:8px;">
-  <img src="renders/6D_03rez_render.png" width="300"/>
-  <img src="renders/6D_04rez_render.png" width="300"/>
-  <img src="renders/6D_05rez_render.png" width="300"/>
+  <img src="renders/6D_03rez_render.png" width="265"/>
+  <img src="renders/6D_04rez_render.png" width="265"/>
+  <img src="renders/6D_05rez_render.png" width="265"/>
 </div>
