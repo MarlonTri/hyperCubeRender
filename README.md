@@ -1,6 +1,14 @@
+
+
 ## Hypercube embeddings
 
 Cubes of various dimensions embedded into 2D space using the [Isomap](https://en.wikipedia.org/wiki/Isomap) algorithm.
+
+<div style="display:flex; flex-wrap:wrap; gap:8px;">
+  <img src="renders/3D_13rez_render.png" width="265"/>
+  <img src="renders/5D_06rez_render.png" width="265"/>
+  <img src="renders/6D_05rez_render.png" width="265"/>
+</div>
 
 ### Inspiration:
 
