@@ -112,6 +112,7 @@ Realistically, a "tetrahedron plot" could represent all 4 color pigment combinat
   <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
     <img src="renders/5D_04rez_render.png" width="265"/>
     <img src="renders/5D_07rez_render.png" width="265"/>
+    <img src="renders/5D_08rez_render.png" width="265"/>
   </div>
 </details>
 

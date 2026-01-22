@@ -52,6 +52,17 @@ def make_configs():
             save_path=f"renders/6D_{rez:02d}rez",
         )
         configs.append(c)
+    configs = []
+    for rez in range(2, 9):
+        c = RenderConfig(
+            n_dim=7,
+            resolution=rez,
+            hollow_fit=True,
+            method="isomap",
+            total_samples=400_000_000,
+            save_path=f"renders/7D_{rez:02d}rez",
+        )
+        configs.append(c)
     return configs
 
 
